@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Column from "./Column";
 import { TaskContext } from "../Contexts/TaskContext";
 
 const Board: React.FC = () => {
   const ctx = useContext(TaskContext);
-  if (!ctx) throw new error("TasksContext saknas");
+  if (!ctx) throw new Error("TasksContext saknas");
 
   const { columns } = ctx;
 
