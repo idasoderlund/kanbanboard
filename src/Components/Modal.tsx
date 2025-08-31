@@ -1,5 +1,14 @@
 import React from "react";
-import { Task } from "";
+import { Task } from "../Contexts/TaskContexts";
+
+interface ModalProps {
+    task: Task;
+    onClose: () => void;
+    onSave: (task: Task) => void;
+    onDelete: (TaskId: string) => void;
+}
+
+const Modal: Reat.FC<ModalProps> = ({ task, onClose, onSave, onDelete}) => {...}
 
 const Modal = ({ task, onClose, onSave, onDelete }) => {
   const [title, setTitle] = React.useState(task?.title || "");

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDrag } from "react-dnd";
-import { Task } from "Types";
+import { Task } from "../Contexts/TaskContexts";
 
 interface CardProps {
   task: Task;
