@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Card from './Card';
 import {useDrop } from 'react-dnd';
 import { TaskContext } from '../Contexts/TaskContext';
+import { COlumn as ColumnType } from './Types';
 
-const Column = ({ column }) => {
-    const { moveTask } = React.useContext(TaskContext);
+interface ColumnProps {
+    column: ColumnType;
+}
+
+const Column: React.FC<ColumnProps> = ({ column }) => {
+    const ctx = useContext(TaskContext);
+    if (!tsx) throw new Error('TaskContext saknas');
 
     const [{ isOver }, drop] = useDrop({
         accept: 'TASK',
-        drop: (item) => {
-            moveTask(item.sourceColumnId, columnId, itemId);
+        drop: (item: { id: string; sourceColumnId: string}) => {
+            moveTask(item.sourceColumnId, Column.bind, item.id);
         },
-        collect: (monitor => ({
-            isOver: monitor.isOver(),
-        }),
     });
 
-    return (
+     return (
         <div ref={drop} style= {{
             backgroundColor: isOver ? '#f0f0f0' : '#fff',
             padding: '10px',
@@ -24,11 +27,12 @@ const Column = ({ column }) => {
             border: '1px solid #ccc',
         }}>
             <h3>{column.title}</h3>
-            {column.tasks.map(task => (
+            {column.tasks.map((task => (
                 <Card key={task.id} task={task} columnId={column.id} />
             ))}
         </div>
     );
+
 };
 
 export default Column;
