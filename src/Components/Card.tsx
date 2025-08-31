@@ -1,13 +1,13 @@
 import React from "react";
 import { useDrag } from "react-dnd";
-import { Task } from "./Types";
+import { Task } from "Types";
 
 interface CardProps {
   task: Task;
   columnId: string;
 }
 
-const Card = (React.FC<CardProps> = ({ task, columnId }) => {
+const Card: React.FC<CardProps> = ({ task, columnId }) => {
   const [{ isDragging }, drag] = useDrag({
     type: "TASK",
     item: { id: task.id, sourceColumnId: columnId },
@@ -36,5 +36,5 @@ const Card = (React.FC<CardProps> = ({ task, columnId }) => {
       {task.title}
     </div>
   );
-});
+};
 export default Card;

@@ -1,38 +1,40 @@
-import React, { useContext } from 'react';
-import Card from './Card';
-import {useDrop } from 'react-dnd';
-import { TaskContext } from '../Contexts/TaskContext';
-import { COlumn as ColumnType } from './Types';
+import React, { useContext } from "react";
+import Card from "./Card";
+import { useDrop } from "react-dnd";
+import { TaskContext } from "../Contexts/TaskContext";
+import { Column as ColumnType } from "./Types";
 
 interface ColumnProps {
-    column: ColumnType;
+  column: ColumnType;
 }
 
 const Column: React.FC<ColumnProps> = ({ column }) => {
-    const ctx = useContext(TaskContext);
-    if (!tsx) throw new Error('TaskContext saknas');
+  const ctx = useContext(TaskContext);
+  if (!ctx) throw new Error("TaskContext saknas");
 
-    const [{ isOver }, drop] = useDrop({
-        accept: 'TASK',
-        drop: (item: { id: string; sourceColumnId: string}) => {
-            moveTask(item.sourceColumnId, Column.bind, item.id);
-        },
-    });
+  const [{ isOver }, drop] = useDrop({
+    accept: "TASK",
+    drop: (item: { id: string; sourceColumnId: string }) => {
+      moveTask(item.sourceColumnId, Column.id, item.id);
+    },
+  });
 
-     return (
-        <div ref={drop} style= {{
-            backgroundColor: isOver ? '#f0f0f0' : '#fff',
-            padding: '10px',
-            minWidth: '200px',
-            border: '1px solid #ccc',
-        }}>
-            <h3>{column.title}</h3>
-            {column.tasks.map((task => (
-                <Card key={task.id} task={task} columnId={column.id} />
-            ))}
-        </div>
-    );
-
+  return (
+    <div
+      ref={drop}
+      style={{
+        backgroundColor: isOver ? "#f0f0f0" : "#fff",
+        padding: "10px",
+        minWidth: "200px",
+        border: "1px solid #ccc",
+      }}
+    >
+      <h3>{column.title}</h3>
+      {column.tasks.map((task) => (
+        <Card key={task.id} task={task} columnId={column.id} />
+      ))}
+    </div>
+  );
 };
 
 export default Column;
