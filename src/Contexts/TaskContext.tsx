@@ -77,14 +77,3 @@ export const TasksProvider = ({ children }) => {
         </TaskContext.Provider>
     );
 };
-
-
-
-
-
-
-
-
-
-
-}

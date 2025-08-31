@@ -1,4 +1,5 @@
 import React from "react";
+import { Task } from "./";
 
 const Modal = ({ task, onClose, onSave, onDelete }) => {
   const [title, setTitle] = React.useState(task?.title || "");
