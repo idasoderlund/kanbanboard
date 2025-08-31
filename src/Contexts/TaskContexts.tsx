@@ -1,25 +1,6 @@
-import React, { createContext, useState, type ReactNode } from "react";
-import { Column, Task } from "./TaskContexts";
-
-interface TaskContextType {
-  columns: Column[];
-  addTask: (ColumnId: string, task: Task) => void;
-  updateTask: (ColumnId: string, taskId: string, updatedTask: Task) => void;
-  deleteTask: (
-    columnId: string,
-    targetColumnId: string,
-    taskId: string
-  ) => void;
-  moveTask: (
-    sourceColumnId: string,
-    targetColumnId: string,
-    taskId: string
-  ) => void;
-}
-
-export const TaskContext = createContext<TaskContextType | undefined>(
-  undefined
-);
+import React, { /*createContext,*/ useState, type ReactNode } from "react";
+import type { Column, Task } from "../Types/Types";
+import { TaskContext } from "./Context";
 
 const initialData: Column[] = [
   { id: "todo", title: "Todo", tasks: [] },
@@ -27,6 +8,10 @@ const initialData: Column[] = [
   { id: "done", title: "Done", tasks: [] },
 ];
 
+export interface ColumnType {
+  id: string;
+  title: string;
+}
 interface TasksProviderProps {
   children: ReactNode;
 }
@@ -75,7 +60,7 @@ export const TasksProvider: React.FC<TasksProviderProps> = ({ children }) => {
     let taskToMove: Task | undefined;
     setColumns((prev) => {
       const newCols = prev.map((col) => {
-        if (col.id === sourceColumnId) {
+        if (col.id === sourceColumn) {
           taskToMove = col.tasks.find((t: Task) => t.id === taskId);
           return {
             ...col,
@@ -110,3 +95,6 @@ export const TasksProvider: React.FC<TasksProviderProps> = ({ children }) => {
     </TaskContext.Provider>
   );
 };
+export const TaskContext = React.createContext<TaskContextType | undefined>(
+  undefined
+);

@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import Column from "./Column";
-import { TaskContext } from "../Contexts/TaskContext";
+import { TaskContext /*TaskContextType*/ } from "../Contexts/Context";
 
 const Board: React.FC = () => {
   const ctx = useContext(TaskContext);

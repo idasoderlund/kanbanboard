@@ -1,6 +1,8 @@
 import React from "react";
-import { useDrag } from "react-dnd";
-import { Task } from "../Contexts/TaskContexts";
+import type { DragSourceMonitor } from "react-dnd/dist";
+import { useDrag } from "react-dnd/dist";
+//import { HTML5Backend } from "react-dnd-html5-backend";
+import type { Task } from "../Types/Types";
 
 interface CardProps {
   task: Task;
@@ -11,19 +13,21 @@ const Card: React.FC<CardProps> = ({ task, columnId }) => {
   const [{ isDragging }, drag] = useDrag({
     type: "TASK",
     item: { id: task.id, sourceColumnId: columnId },
-    collect: (monitor) => ({
+    collect: (monitor: DragSourceMonitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });
 
-  const handleClick = () => {
+  /*const handleClick = () => {
     //visa modal för redigering eller ta bort
     //detta hanteras i modalkomponenten
-  };
+  };*/
 
   return (
     <div
-      ref={drag}
+      ref={(node) => {
+        drag(node);
+      }}
       style={{
         opacity: isDragging ? 0.5 : 1,
         backgroundColor: "white",

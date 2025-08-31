@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import Card from "./Card";
-import { useDrop } from "react-dnd";
-import { TaskContext } from "../Contexts/TaskContext";
-import { Column as ColumnType } from "./Types";
+import { useDrop } from "react-dnd/dist";
+import { TaskContext } from "./TaskContext";
+import type { Column as ColumnType } from "../Types/Types";
+//import { Task } from "../Contexts/TaskContexts";
 
 interface ColumnProps {
   column: ColumnType;

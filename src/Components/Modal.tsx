@@ -1,18 +1,16 @@
 import React from "react";
-import { Task } from "../Contexts/TaskContexts";
+import type { Task } from "../Types/Types";
 
 interface ModalProps {
-    task: Task;
-    onClose: () => void;
-    onSave: (task: Task) => void;
-    onDelete: (TaskId: string) => void;
+  task?: Task;
+  onClose: () => void;
+  onSave: (task: Task) => void;
+  onDelete: (TaskId: string) => void;
 }
 
-const Modal: Reat.FC<ModalProps> = ({ task, onClose, onSave, onDelete}) => {...}
-
-const Modal = ({ task, onClose, onSave, onDelete }) => {
-  const [title, setTitle] = React.useState(task?.title || "");
-  const [description, setDescription] = React.useState(task?.description || "");
+const Modal: React.FC<ModalProps> = ({ task, onClose, onSave, onDelete }) => {
+  const [title, setTitle] = React.useState<string>("");
+  const [description, setDescription] = React.useState<string>("");
 
   if (!task) return null;
 
