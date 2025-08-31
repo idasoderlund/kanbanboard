@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { TaskContext } from "../Contexts/TaskContexts";
+import type { Column } from "../Types/Types";
 
 interface Task {
   id: string;
@@ -19,7 +20,7 @@ const ColumnPage: React.FC = () => {
 
   const { columns } = ctx;
 
-  const column = columns.find((c) => c.id === columnId);
+  const column = columns.find((c: Column) => c.id === columnId);
 
   if (!column) return <div>Kolumnen finns inte.</div>;
 
