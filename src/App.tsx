@@ -1,9 +1,10 @@
+import ReactDOM from "react-dom";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Board from "./Components/Board.tsx";
 import ColumnPage from "./Pages/ColumnPage.tsx";
 import { TasksProvider } from "./Contexts/TaskContexts.tsx";
-import { DndProvider } from "react-dnd/dist";
+import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 const App: React.FC = () => {

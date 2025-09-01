@@ -1,7 +1,7 @@
 import React from "react";
-import type { DragSourceMonitor } from "react-dnd/dist";
-import { useDrag } from "react-dnd/dist";
-//import { HTML5Backend } from "react-dnd-html5-backend";
+import type { DragSourceMonitor } from "react-dnd";
+import { DndProvider, useDrag } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import type { Task } from "../Types/Types";
 
 interface CardProps {
