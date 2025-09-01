@@ -9,9 +9,9 @@ interface ColumnProps {
   column: ColumnType;
 }
 
-interface DropResult {
+/*interface DropResult {
   isOver: boolean;
-}
+}*/
 
 const Column: React.FC<ColumnProps> = ({ column }) => {
   const ctx = useContext(TaskContext);
@@ -21,9 +21,13 @@ const Column: React.FC<ColumnProps> = ({ column }) => {
 
   const divRef = useRef<HTMLDivElement>(null);
 
-  const [{ isOver }, drop] = useDrop<DropResult, unknown, { isOver: boolean }>({
+  const [{ isOver }, drop] = useDrop<
+    { id: string; sourceColumnId: string },
+    unknown,
+    { isOver: boolean }
+  >({
     accept: "TASK",
-    drop: (item: { id: string; sourceColumnId: string }, monitor) => {
+    drop: (item: { id: string; sourceColumnId: string }) => {
       moveTask(item.sourceColumnId, column.id, item.id);
     },
     collect: (monitor) => ({
