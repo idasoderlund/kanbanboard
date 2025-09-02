@@ -18,11 +18,6 @@ const Card: React.FC<CardProps> = ({ task, columnId }) => {
     }),
   });
 
-  /*const handleClick = () => {
-    //visa modal för redigering eller ta bort
-    //detta hanteras i modalkomponenten
-  };*/
-
   return (
     <div
       ref={(node) => {

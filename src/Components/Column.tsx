@@ -3,7 +3,6 @@ import Card from "./Card";
 import { useDrop, DropTargetMonitor } from "react-dnd";
 import { TaskContext } from "../Contexts/Context";
 import type { Column as ColumnType } from "../Types/Types";
-//import { Task } from "../Contexts/TaskContexts";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
@@ -15,10 +14,6 @@ interface DragItem {
   id: string;
   sourceColumnId: string;
 }
-
-/*interface DropResult {
-  isOver: boolean;
-}*/
 
 const Column: React.FC<ColumnProps> = ({ column }) => {
   const ctx = useContext(TaskContext);

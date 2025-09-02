@@ -1,4 +1,4 @@
-import React, { /*createContext,*/ useState, type ReactNode } from "react";
+import React, { useState, type ReactNode } from "react";
 import type { Column, Task } from "../Types/Types";
 import { TaskContext } from "./Context";
 
@@ -95,7 +95,3 @@ export const TasksProvider: React.FC<TasksProviderProps> = ({ children }) => {
     </TaskContext.Provider>
   );
 };
-
-/*export const TaskContext = React.createContext<TaskContextType | undefined>(
-  undefined
-);*/

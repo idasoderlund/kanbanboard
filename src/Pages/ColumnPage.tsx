@@ -6,13 +6,8 @@ import type { Column } from "../Types/Types";
 interface Task {
   id: string;
   title: string;
-} //Finns en interface i types redan, kolla sen gällande import
+}
 
-/*interface Column {
-  id: string;
-  title: string;
-  tasks: Task[];
-}*/
 const ColumnPage: React.FC = () => {
   const { columnId } = useParams<{ columnId: string }>();
   const ctx = useContext(TaskContext);
