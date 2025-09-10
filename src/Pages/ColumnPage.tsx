@@ -3,11 +3,6 @@ import { useParams } from "react-router-dom";
 import { TaskContext } from "../Contexts/Context";
 import type { Column, Task } from "../Types/Types";
 
-interface Task {
-  id: string;
-  title: string;
-}
-
 const ColumnPage: React.FC = () => {
   const { columnId } = useParams<{ columnId: string }>();
   const ctx = useContext(TaskContext);
