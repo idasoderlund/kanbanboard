@@ -5,11 +5,7 @@ interface TaskContextType {
   columns: Column[];
   addTask: (ColumnId: string, task: Task) => void;
   updateTask: (ColumnId: string, taskId: string, updatedTask: Task) => void;
-  deleteTask: (
-    columnId: string,
-    targetColumnId: string,
-    taskId: string
-  ) => void;
+  deleteTask: (columnId: string, taskId: string) => void;
   moveTask: (
     sourceColumnId: string,
     targetColumnId: string,
