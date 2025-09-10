@@ -18,13 +18,9 @@ const Board: React.FC = () => {
     const activeData = active.data.current;
     const overId = over.id as string;
 
-    if (activeData = active.data.current;
-      const overId = over.id as string;
-
-      if (activeData && activeData.columnId !== overId) {
-        moveTask(activeData.columnId, overId, active.id as string);
-      }
-
+    if (activeData && activeData.columnId !== overId) {
+      moveTask(activeData.columnId, overId, active.id as string);
+    }
   };
 
   return (
