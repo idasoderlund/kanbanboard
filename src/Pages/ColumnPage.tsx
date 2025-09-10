@@ -1,12 +1,7 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { TaskContext } from "../Contexts/Context";
-import type { Column } from "../Types/Types";
-
-interface Task {
-  id: string;
-  title: string;
-}
+import type { Column, Task } from "../Types/Types";
 
 const ColumnPage: React.FC = () => {
   const { columnId } = useParams<{ columnId: string }>();
