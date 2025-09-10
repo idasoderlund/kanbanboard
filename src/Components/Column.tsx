@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from "react";
 import Card from "./Card";
-import { useDrop } from "react-dnd/dist";
+import { useDrop } from "react-dnd/dist"; //lägg märke till att dist är adderat
 import { TaskContext } from "../Contexts/Context";
 import type { Column as ColumnType } from "../Types/Types";
 
