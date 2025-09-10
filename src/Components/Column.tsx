@@ -1,10 +1,8 @@
 import React, { useContext, useRef } from "react";
 import Card from "./Card";
-import { useDrop, DropTargetMonitor } from "react-dnd";
+import { useDrop } from "react-dnd/dist";
 import { TaskContext } from "../Contexts/Context";
 import type { Column as ColumnType } from "../Types/Types";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 
 interface ColumnProps {
   column: ColumnType;
@@ -22,19 +20,23 @@ const Column: React.FC<ColumnProps> = ({ column }) => {
   const { moveTask } = ctx;
 
   const divRef = useRef<HTMLDivElement>(null);
+  const [isOver, setIsOver] = React.useState(false);
 
-  const [{ isOver }, drop] = useDrop<DragItem, unknown, { isOver: boolean }>({
+  const [drop] = useDrop<DragItem, unknown>({
     accept: "TASK",
-    drop: (item: DragItem, monitor: DropTargetMonitor) => {
+    hover: () => {
+      setIsOver(true);
+    },
+    leave: () => {
+      setIsOver(false);
+    },
+    drop: (item: DragItem) => {
       moveTask(item.sourceColumnId, column.id, item.id);
     },
-
-    collect: (monitor: DropTargetMonitor) => ({
-      isOver: monitor.isOver(),
-    }),
   });
 
   drop(divRef);
+
   return (
     <div
       ref={divRef}
