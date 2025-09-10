@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { TaskContext } from "../Contexts/Context";
-import type { Column } from "../Types/Types";
+import type { Column, Task } from "../Types/Types";
 
 interface Task {
   id: string;

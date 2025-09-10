@@ -3,9 +3,25 @@ import type { Column, Task } from "../Types/Types";
 import { TaskContext } from "./Context";
 
 const initialData: Column[] = [
-  { id: "todo", title: "Todo", tasks: [] },
-  { id: "inprogress", title: "In Progress", tasks: [] },
-  { id: "done", title: "Done", tasks: [] },
+  {
+    id: "todo",
+    title: "Todo",
+    tasks: [
+      { id: "task-1", title: "Design nre feature" },
+      { id: "task-2", title: "Write new documentation" },
+    ],
+  },
+
+  {
+    id: "inprogress",
+    title: "In Progress",
+    tasks: [{ id: "task-3", title: "Implement drag and drop" }],
+  },
+  {
+    id: "done",
+    title: "Done",
+    tasks: [{ id: "task-4", title: "Set up project structure" }],
+  },
 ];
 
 export interface ColumnType {
