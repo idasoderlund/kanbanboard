@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({ task, columnId }) => {
 
   //Definera stil för kort
   const style = {
-    //Anv'nder transform värde för att flytta element under dragning
+    //Använder transform värde för att flytta element under dragning
     transform: transform
       ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
       : undefined,

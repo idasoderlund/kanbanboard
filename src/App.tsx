@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Board from "./Components/Board.tsx";
 import ColumnPage from "./Pages/ColumnPage.tsx";
 import { TasksProvider } from "./Contexts/TaskContexts.tsx";
-//import { DndProvider } from "react-dnd"; //dessa verkar behöva ligga här
-//import { HTML5Backend } from "react-dnd-html5-backend"; //dessa verkar behöva ligga här
 
 //Appfunktion med samlade komponenter samt -Navigering SPA
 const App: React.FC = () => {
