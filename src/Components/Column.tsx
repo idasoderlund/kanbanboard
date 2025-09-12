@@ -6,11 +6,12 @@ import type { Column as ColumnType } from "../Types/Types";
 interface ColumnProps {
   column: ColumnType;
 }
-
+//Funktionell komponent för att rendera en kolumn
 const Column: React.FC<ColumnProps> = ({ column }) => {
   const ctx = useContext(TaskContext);
   if (!ctx) throw new Error("TaskContext saknas");
 
+  //Använder useDroppable för att göra kolumnen droppable i dnd-funktionaliteten
   const { isOver, setNodeRef } = useDroppable({
     id: column.id,
   });

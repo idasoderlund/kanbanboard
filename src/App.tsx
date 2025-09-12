@@ -6,6 +6,7 @@ import { TasksProvider } from "./Contexts/TaskContexts.tsx";
 //import { DndProvider } from "react-dnd"; //dessa verkar behöva ligga här
 //import { HTML5Backend } from "react-dnd-html5-backend"; //dessa verkar behöva ligga här
 
+//Appfunktion med samlade komponenter samt -Navigering SPA
 const App: React.FC = () => {
   return (
     <TasksProvider>
